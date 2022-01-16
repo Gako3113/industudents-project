@@ -12,6 +12,10 @@
                     </h2>
                     <p class="body">{{$post->body}}</p>
                 </div>
+                @if ($post->image_path)
+                  <!-- 画像を表示 -->
+                  <img src="{{ $post->image_path }}">
+                @endif
                 <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
                     @csrf
                     @method('DELETE')

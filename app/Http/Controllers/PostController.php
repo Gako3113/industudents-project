@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -20,16 +21,9 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
     
-    public function add()
-    {
-        return view('posts.create');
-    }
-    
     public function create(Request $request)
     {
         $post = new Post;
-        $form = $request->all();
-        
         //s3アップロード開始
         $image = $request->file('image');
         
@@ -44,10 +38,12 @@ class PostController extends Controller
             $path = null;
         }
         
+        $form = $request->all();
+        
         return view('posts/create');
     }
     
-    public function store(Request $request, Post $post)
+    public function store(Post $post, Request $request)
     {
         $input = $request['post'];
         $post->fill($input)->save();

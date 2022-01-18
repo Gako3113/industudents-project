@@ -14,7 +14,11 @@ class DropColumnStartAtEndAtStartTimeEndTimeUserIdColumn extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            $table->dropColumn('start_at');
+            $table->dropColumn('end_at');
+            $table->dropColumn('start_time');
+            $table->dropColumn('end_time');
+            $table->dropColumn('user_id');
         });
     }
 
@@ -26,7 +30,11 @@ class DropColumnStartAtEndAtStartTimeEndTimeUserIdColumn extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            $table->date('start_at');
+            $table->date('end_at');
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
+            $table->integer('user_id');
         });
     }
 }

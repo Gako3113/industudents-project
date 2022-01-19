@@ -7,7 +7,8 @@
         <div class="album py-5 bg-light ">
             <div class="container">
                 <h1 class="py-5">求人登録</h1>
-                <form action="/posts" method="POST">
+                <form action="/posts" method="POST" enctype="multipart/form-data">
+                    
                     @csrf
                     <div class="title">
                         <h2>タイトル</h2>
@@ -26,12 +27,8 @@
                     </div>
                     <div class="image_path">
                         <h2>画像</h2>
-                        <form action="{{ action('PostController@create') }}" method="post" enctype="multipart/form-data">
-                            <!-- アップロードフォームの作成 -->
-                            <input type="file" name="post[image_path]">
-                            {{ csrf_field() }}
-                            <input type="submit" value="アップロード">
-                        </form>
+                        <!-- アップロードフォームの作成 -->
+                        <input type="file" name="post[image_path]">
                     </div>
                     <div class="datetime pt-3">
                         <div class="start_datetime">

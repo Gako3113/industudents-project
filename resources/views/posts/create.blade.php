@@ -8,7 +8,6 @@
             <div class="container">
                 <h1 class="py-5">求人登録</h1>
                 <form action="/posts" method="POST" enctype="multipart/form-data">
-                    
                     @csrf
                     <div class="title">
                         <h2>タイトル</h2>

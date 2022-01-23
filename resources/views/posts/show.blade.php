@@ -12,16 +12,7 @@
               <div class="card-body">
                 <h5 class="card-title title">{{ $post->title }}</h5>
                 <p class="card-text body">{{ $post->body }}</p>
-                <a href="">{{ $post->category->name }}</a>
-                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                 <a href="#" class="btn btn-primary">詳細を見る</a>
-                @foreach ($posts as $post)
-                    <div class='post'>
-                      <h2 class='title'>
-                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                      </h2>
-                    </div>
-                @endforeach
               </div>
           </div>
         </div>

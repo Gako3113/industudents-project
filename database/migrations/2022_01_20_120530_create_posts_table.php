@@ -14,19 +14,13 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('job_id');
+            $table->bigIncrements('id');
             $table->string('title', 50);
-            $table->string('place');
-            $table->string('image', 100)->nullable();
-            $table->date('start_at');
-            $table->date('end_at');
-            $table->time('start_time')->nullable();
-            $table->time('end_time')->nullable();
-            $table->string('user_name');
-            $table->integer('user_id');
-            $table->string('companies');
-            $table->string('address');
-            $table->integer('phone_number');
+	        $table->string('body', 200);
+            $table->string('place', 200);
+            $table->string('image_path')->nullable();
+	        $table->datetime('start_datetime');
+            $table->datetime('end_datetime');
             $table->integer('salary');
             $table->datetime('deadline');
             $table->timestamps();

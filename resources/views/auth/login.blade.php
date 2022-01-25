@@ -5,12 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('ログイン') }}</div>
+                <div class="card-header">{{ isset($authgroup) ? ucwords($authgroup) : ""}} {{ __('ログイン') }}</div>
 
                 <div class="card-body">
+                    @isset($authgroup)
+                    <form method="POST" action="{{ url("login/$authgroup") }}">
+                    @else
                     <form method="POST" action="{{ route('login') }}">
+                    @endisset
                         @csrf
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
 
@@ -57,9 +60,9 @@
                                     {{ __('ログイン') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('パワードをお忘れですか?') }}
+                                @if (Route::has(isset($authgroup) ? $authgroup.'.password.request' : 'password.request'))
+                                    <a class="btn btn-link" href="{{ route(isset($authgroup) ? $authgroup.'.password.request' : 'password.request') }}">
+                                        {{ __('パスワードをお忘れですか?') }}
                                     </a>
                                 @endif
                             </div>

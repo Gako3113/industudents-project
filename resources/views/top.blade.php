@@ -9,6 +9,6 @@
 <div class="users">
     <h1>一次産業に携わろう<br>industudentsで</h1>
     <h2>industudentsは、一次産業に携わってみたい学生向けマッチング求人サービスです。</h2>
-    <p class="users">[<a href='/posts'>学生の方はこちら</a>]</p>
+    <p class="users">[<a href='/login'>学生の方はこちら</a>]</p>
 </div>
 @endsection

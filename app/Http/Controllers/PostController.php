@@ -23,22 +23,6 @@ class PostController extends Controller
     
     public function create(Request $request)
     {
-        $post = new Post;
-        //s3アップロード開始
-        $image = $request->file('image');
-        
-        if($request->hasFile('image')){
-            // バケットの`myprefix`フォルダへアップロード
-            $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
-            // アップロードした画像のフルパスを取得
-            $post->image_path = Storage::disk('s3')->url($path);
-    
-            $post->save();
-        }else{
-            $path = null;
-        }
-        
-        $form = $request->all();
         
         return view('posts/create');
     }
@@ -46,6 +30,18 @@ class PostController extends Controller
     public function store(Post $post, Request $request)
     {
         $input = $request['post'];
+        //s3アップロード開始
+        $image = $request->file('image');
+        if($image){
+            // バケットの`myprefix`フォルダへアップロード
+            $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
+            // アップロードした画像のフルパスを取得
+            $input['image_path'] = Storage::disk('s3')->url($path);
+    
+        }else{
+            $path = null;
+        }
+        
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }

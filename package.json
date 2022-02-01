@@ -25,6 +25,8 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "laravel-echo": "^1.11.3",
+        "pusher-js": "^7.0.4",
         "react-router": "^6.2.1",
         "react-router-dom": "^6.2.1"
     }

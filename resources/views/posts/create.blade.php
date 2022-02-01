@@ -27,7 +27,7 @@
                     <div class="image_path">
                         <h2>画像</h2>
                         <!-- アップロードフォームの作成 -->
-                        <input type="file" name="post[image_path]">
+                        <input type="file" name="image">
                     </div>
                     <div class="datetime pt-3">
                         <div class="start_datetime">

@@ -26,7 +26,7 @@ Route::get('/top', function() {
 });
 
 //login users
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'AdminHomeController@index')->name('home');
 
 //login admin
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');

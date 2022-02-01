@@ -9,6 +9,7 @@
                 <div class="posts">
                     <div class="row">
                         @foreach ($posts as $post)
+                        {{ $posts }}
                         <div class="col-md-6">
                             <div class="card m-4 shadow-sm">
                                 @if ($post->image_path)

@@ -1,5 +1,4 @@
-
-@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+@extends('layouts.app', ['authgroup'=>'admin'])　　　　　　　　　　　　　　　　　　
 
 @section('content')
     <title>求人登録</title>

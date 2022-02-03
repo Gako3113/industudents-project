@@ -50,8 +50,8 @@
                     <div class="daadline pb-3">
                         <label for="daadline" class="col-form-label">
                             <h2>締め切り日時</h2>
+                            <input type="datetime-local" class="form-control" id="daadline" name="post[deadline]">
                         </label>
-                        <input type="datetime-local" class="form-control" id="daadline" name="post[deadline]">    
                     </div>
                     <input type="submit" class="btn btn-primary" value="登録"/>
                 </form>

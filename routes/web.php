@@ -20,10 +20,15 @@ Route::post('/posts/{post}', 'PostController@update');
 Route::delete('/posts/{post}', 'PostController@delete');
 Route::get('/posts/{post}/edit', 'PostController@edit');
 
-Auth::routes();
 Route::get('/top', function() {
     return view('top');
 });
+Auth::routes();
+
+//message
+Route::get('/message', 'MessageController@index')->name('chat');
+Route::get('/chat/{recieve}' , 'ChatController@index')->name('chat');
+Route::post('/chat/send' , 'ChatController@store')->name('chatSend');
 
 //login users
 Route::get('/home', 'AdminHomeController@index')->name('home');

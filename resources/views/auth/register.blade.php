@@ -5,7 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ isset($authgroup) ? ucwords($authgroup) : ""}} {{ __('新規ユーザー登録') }}</div>
+                <div class="card-header">
+                    @isset($authgroup)
+                    {{ '新規ユーザー登録(募集者)' }}
+                    @else
+                    {{ '新規ユーザー登録(学生)' }}
+                    @endisset
+                </div>
 
                 <div class="card-body">
                     @isset($authgroup)

@@ -29,16 +29,16 @@ class ChatController extends Controller
         ];
  
         // 送信 / 受信のメッセージを取得する
-        // $query = Message::where('send' , $loginId)->where('recieve' , $recieve);;
-        // $query->orWhere(function($query) use($loginId , $recieve){
-        //     $query->where('send' , $recieve);
-        //     $query->where('recieve' , $loginId);
+        $query = Message::where('send' , $loginId)->where('recieve' , $recieve);;
+        $query->orWhere(function($query) use($loginId , $recieve){
+            $query->where('send' , $recieve);
+            $query->where('recieve' , $loginId);
  
-        // });
+        });
  
-        // $messages = $query->get();
+        $messages = $query->get();
  
-        return view('message.chat'); //, compact('param' , 'messages'));
+        return view('message.chat', compact('param' , 'messages'));
     }
  
     /**
@@ -56,12 +56,12 @@ class ChatController extends Controller
  
  
         // メッセージデータ保存
-        // try{
-        //     Message::insert($insertParam);
-        // }catch (\Exception $e){
-        //     return false;
+        try{
+            Message::insert($insertParam);
+        }catch (\Exception $e){
+            return false;
  
-        // }
+        }
  
  
         // イベント発火

@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    protected $fillable = [
-        'send', 'recieve', 'message',
-    ];
+    protected $message;
+    protected $request;
     
     public function index(Message $message)
     {

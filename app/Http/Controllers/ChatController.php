@@ -35,7 +35,6 @@ class ChatController extends Controller
             $query->where('recieve' , $loginId);
  
         });
- 
         $messages = $query->get();
  
         return view('message.chat', compact('param' , 'messages'));

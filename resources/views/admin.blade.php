@@ -14,7 +14,7 @@
         <div class="job_talk">
             <h1>学生と話す</h1>
             <h3>学生と話し、今後のアルバイトの予定や、詳細情報などを送りましょう。</h3>
-            <a href="/message" class="btn btn-primary">話す</a>
+            <a href="/users" class="btn btn-primary">話す</a>
         </div>
         <div class="job_see">
             <h1>求人履歴</h1>

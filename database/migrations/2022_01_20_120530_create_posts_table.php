@@ -15,13 +15,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id')->unsigned();
             $table->string('title', 50);
 	        $table->string('body', 200);
             $table->string('place', 200);
             $table->string('image_path')->nullable();
 	        $table->datetime('start_datetime');
             $table->datetime('end_datetime');
-            $table->integer('salary');
+            $table->string('salary');
+            $table->string('applicants');
             $table->datetime('deadline');
             $table->timestamps();
             $table->softDeletes();

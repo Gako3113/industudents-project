@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
+        // $users = $user->get();
+        // dd($users);
         $users = User::where('id', '!=', auth()->user()->id)->get();
         return view('users.index', compact('users'));
     }

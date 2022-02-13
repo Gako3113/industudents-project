@@ -11,7 +11,9 @@ class UsersController extends Controller
     {
         // $users = $user->get();
         // dd($users);
-        $users = User::where('id', '!=', auth()->user()->id)->get();
+        $users = User::find(1)->get();
+        dd($users);
+        // $users = User::where('id', '!=', auth()->user()->id)->get();
         return view('users.index', compact('users'));
     }
 }

@@ -27,11 +27,8 @@ Auth::routes();
 
 // follow
 Route::get('users', 'UsersController@index')->name('users');
-Route::group(['middleware' => 'auth'], function () {
-    // Route::get('users', 'UsersController@index')->name('users');
-    Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
-    Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
-});
+Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
+Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
 
 //message
 Route::get('/message', 'MessageController@index')->name('chat');

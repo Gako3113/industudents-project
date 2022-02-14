@@ -14,7 +14,7 @@
                     <table class="table table-striped task-table">
                         <thead>
                         <th>User</th>
-                        <th> </th>
+                        <th></th>
                         </thead>
                         <tbody>
                         @foreach ($users as $user)

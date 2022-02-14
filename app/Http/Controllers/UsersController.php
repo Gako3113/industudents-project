@@ -9,11 +9,8 @@ class UsersController extends Controller
 {
     public function index(User $user)
     {
-        // $users = $user->get();
-        // dd($users);
-        $users = User::find(1)->get();
-        dd($users);
-        // $users = User::where('id', '!=', auth()->user()->id)->get();
+        $user = User::all()->first();
+        $users = User::where('id', '!=', $user->id)->get();
         return view('users.index', compact('users'));
     }
 }

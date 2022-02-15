@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -65,6 +65,6 @@ class User extends Authenticatable
 
     public function isFollowing($userId) 
     {
-        return (boolean) $this->follows()->where('follows_id', $userId)->first(['users.id']);
+        return (boolean) $this->follows()->where('follows_id', $userId)->first(['id']);
     }
 }
